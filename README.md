@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Installing application##
+
+1. Make sure your are in latest node.js version
+2. "npm install" command has to be use before starting the application.
+
 ## Available Scripts
 
 In the project directory, you can run:
