@@ -68,3 +68,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+#### React Notes
+
+Virtual Dom - A lightweight copy of the real DOM that React uses to optimize updates and rendering.
+
+Props - Short for "properties," props are read-only inputs passed from a parent component to a child component in React.
+
+State - An object that holds data that may change over the lifetime of a component and affects what is rendered.
+
+Parent component - A component that contains and passes data to one or more child components.
+
+Child component - A component that receives data from a parent component via props.
