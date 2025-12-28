@@ -85,3 +85,37 @@ State - An object that holds data that may change over the lifetime of a compone
 Parent component - A component that contains and passes data to one or more child components.
 
 Child component - A component that receives data from a parent component via props.
+
+# 🛍️ VibeMart – React E-Commerce Application
+
+VibeMart is a modern, beginner-friendly e-commerce web application built using **React** and **Material UI**.  
+This project is designed to help beginners understand how a real-world React application is structured and how different pages work together.
+
+---
+
+## 🚀 Features
+
+- 🏠 Home page with product listing
+- 📦 Product details page
+- 🛒 Interactive checkout page
+- 👤 Login and profile page
+- 🔐 Protected routes
+- 🎨 Modern UI using Material UI
+- ⚡ API integration using Axios
+- 📱 Fully responsive design
+
+---
+
+## 🧰 Tech Stack
+
+- React (Create React App)
+- Material UI (MUI)
+- React Router
+- Axios
+- JavaScript (ES6+)
+
+---
+
+## login page
+
+- Login with your email id and random password

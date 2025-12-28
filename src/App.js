@@ -11,12 +11,17 @@ import "./App.css";
 // Shop component
 // This is a FUNCTIONAL component (uses hooks)
 // Uncomment the class-based import if you want to test lifecycle methods
-import Shop from "./components/shop/shop";
 // import Shop from "./components/shop";
+
+// Navbar component
+import Navbar from "./components/navbar";
 
 // Utility function
 // add() is a helper function that returns sum of two numbers
-import { add } from "./utils/utils";
+import { add, generateRandomNumber } from "./utils/utils";
+import LoginPage from "./pages/login";
+import AccessRole from "./components/HOC/AccessRole";
+import RouterPage from "./routes";
 
 // =======================
 // BASIC REACT CONCEPTS
@@ -58,6 +63,8 @@ import { add } from "./utils/utils";
 // APP COMPONENT
 // =======================
 
+const LoginPageWithHOC = AccessRole(LoginPage);
+
 function App() {
   // -----------------------
   // STATE DECLARATION
@@ -94,41 +101,14 @@ function App() {
   // -----------------------
   // JSX (UI RENDERING)
   // -----------------------
+  console.log(generateRandomNumber(10)); //Impure function example
+  console.log(add(5, 3));
+  // Pure function example
 
   return (
     <div className="App">
-      <header className="App-header">
-        {/* 
-          Counter component example (commented)
-          - count is passed as prop
-          - handleIncrement is passed as function prop
-        */}
-        {/*
-        <Counter count={count} onIncrement={handleIncrement} />
-        */}
-
-        {/* 
-          Example of Event Bubbling Control
-          - stopPropagation() prevents event from reaching parent
-        */}
-        {/*
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            console.log("Decrement Clicked");
-          }}
-        >
-          Decrement
-        </button>
-        */}
-
-        {/* 
-          Shop Component
-          - Can be functional or class-based
-          - Used to demonstrate lifecycle methods / hooks
-        */}
-        <Shop />
-      </header>
+      <Navbar />
+      <RouterPage />
     </div>
   );
 }
