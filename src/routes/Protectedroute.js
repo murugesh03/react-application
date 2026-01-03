@@ -1,10 +1,10 @@
 // import React from "react";
 // import { Navigate } from "react-router";
-// // localStorage.setItem("authToken", true);
-// // localStorage.removeItem("authToken");
+// // sessionStorage.setItem("authToken", true);
+// // sessionStorage.removeItem("authToken");
 
 // function isAuthenticated() {
-//   const userAuthenticated = localStorage.getItem("authToken");
+//   const userAuthenticated = sessionStorage.getItem("authToken");
 //   console.log(userAuthenticated, "userAuthenticated");
 //   // Replace this with your actual authentication logic
 //   return userAuthenticated ? true : false; // or false based on authentication status }
@@ -24,7 +24,7 @@
 import { Navigate } from "react-router-dom";
 
 const Protectedroute = ({ children }) => {
-  const user = localStorage.getItem("user");
+  const user = sessionStorage.getItem("user");
 
   if (!user) {
     return <Navigate to="/login" replace />;

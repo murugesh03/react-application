@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Container,
   TextField,
@@ -15,8 +15,11 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff, Login } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const LoginPage = () => {
+  const { setUser } = useContext(UserContext);
+
   const navigate = useNavigate();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -26,17 +29,12 @@ const LoginPage = () => {
 
   const handleLogin = () => {
     if (!email || !password) return;
-
     setLoading(true);
+    const loginUserInfo = { email, loginTime: new Date().toLocaleString() };
 
     setTimeout(() => {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          email,
-          loginTime: new Date().toLocaleString()
-        })
-      );
+      sessionStorage.setItem("user", JSON.stringify(loginUserInfo));
+      setUser(loginUserInfo);
       setLoading(false);
       setSnackbar(true);
       navigate("/");

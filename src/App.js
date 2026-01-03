@@ -22,6 +22,7 @@ import { add, generateRandomNumber } from "./utils/utils";
 import LoginPage from "./pages/login";
 import AccessRole from "./components/HOC/AccessRole";
 import RouterPage from "./routes";
+import { UserContext } from "./context/UserContext";
 
 // =======================
 // BASIC REACT CONCEPTS
@@ -75,6 +76,11 @@ function App() {
   // useState causes component to re-render when state changes
   const [count, setCount] = React.useState(0);
 
+  const [userInfo, setUserInfo] = React.useState({
+    loginTime: "",
+    email: ""
+  });
+
   // -----------------------
   // EVENT HANDLER FUNCTION
   // -----------------------
@@ -106,10 +112,12 @@ function App() {
   // Pure function example
 
   return (
-    <div className="App">
-      <Navbar />
-      <RouterPage />
-    </div>
+    <UserContext.Provider value={{ user: userInfo, setUser: setUserInfo }}>
+      <div className="App">
+        <Navbar />
+        <RouterPage />
+      </div>
+    </UserContext.Provider>
   );
 }
 

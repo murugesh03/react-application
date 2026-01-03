@@ -18,16 +18,20 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
+  //const history= useHistory()
+  // history.push('/login')
+
   const [open, setOpen] = React.useState(false);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
   const toggleDrawer = (state) => () => {
     setOpen(state);
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     navigate("/login");
   };
 

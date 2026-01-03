@@ -7,11 +7,16 @@ import AccessRole from "../components/HOC/AccessRole";
 import Protectedroute from "./Protectedroute";
 import ProductPage from "../pages/productPage";
 import CheckoutPage from "../pages/checkout";
+import { UserContext } from "../context/UserContext";
 
 const ProtectedHome = AccessRole(Homepage);
 const ProtectedProfile = AccessRole(Profile);
 
 const RouterPage = () => {
+  const [userInfo, setUserInfo] = React.useState({
+    loginTime: "",
+    email: ""
+  });
   return (
     <Routes>
       <Route path="/" element={<ProtectedHome authenticated={true} />} />
@@ -19,7 +24,11 @@ const RouterPage = () => {
         path="/profile"
         element={
           <Protectedroute>
+            {/* <UserContext.Provider
+              value={{ user: userInfo, setUser: setUserInfo }}
+            > */}
             <ProtectedProfile authenticated={true} />
+            {/* </UserContext.Provider> */}
           </Protectedroute>
         }
       />
@@ -39,7 +48,16 @@ const RouterPage = () => {
           </Protectedroute>
         }
       />
-      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/login"
+        element={
+          // <UserContext.Provider
+          //   value={{ user: userInfo, setUser: setUserInfo }}
+          // >
+          <LoginPage />
+          // </UserContext.Provider>
+        }
+      />
     </Routes>
   );
 };

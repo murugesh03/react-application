@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Typography,
@@ -23,14 +23,17 @@ import {
   VerifiedUser
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const ProfilePage = () => {
+  const { user: loginUser, setUser } = useContext(UserContext);
+  console.log("Logged in user from context:", loginUser);
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
   const [darkMode, setDarkMode] = React.useState(false);
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
     navigate("/login");
   };
 

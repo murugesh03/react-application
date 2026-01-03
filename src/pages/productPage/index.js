@@ -1,5 +1,5 @@
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
   Container,
@@ -18,6 +18,7 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { UserContext } from "../../context/UserContext";
 
 /* -----------------------------
    Skeleton Loader
@@ -73,7 +74,8 @@ const ProductSkeleton = () => {
 const ProductPage = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
-
+  const { user: loginUser } = useContext(UserContext);
+  console.log("Logged in user from context:", loginUser);
   const [product, setProduct] = React.useState(null);
   const [quantity, setQuantity] = React.useState(1);
   const [loading, setLoading] = React.useState(true);
