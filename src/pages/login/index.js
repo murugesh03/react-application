@@ -14,12 +14,13 @@ import {
   Paper
 } from "@mui/material";
 import { Visibility, VisibilityOff, Login } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { UserContext } from "../../context/UserContext";
-
+import { setUserDtls } from "../../redux/slices/userSlice";
+import { useDispatch } from "react-redux";
 const LoginPage = () => {
   const { setUser } = useContext(UserContext);
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -34,7 +35,8 @@ const LoginPage = () => {
 
     setTimeout(() => {
       sessionStorage.setItem("user", JSON.stringify(loginUserInfo));
-      setUser(loginUserInfo);
+      dispatch(setUserDtls(loginUserInfo));
+      // setUser(loginUserInfo);
       setLoading(false);
       setSnackbar(true);
       navigate("/");

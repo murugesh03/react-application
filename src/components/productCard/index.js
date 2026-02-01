@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import {
   Grid,
   Card,
@@ -11,6 +11,7 @@ import {
   Box,
   Chip
 } from "@mui/material";
+import "./style.css";
 
 const ProductCardName = ({ name }) => {
   return <div>{name}</div>;
@@ -33,6 +34,8 @@ const ProductCard = ({ product, name }) => {
       display="flex"
       justifyContent="center"
     >
+      <div className="product-card-container"></div>
+      <div style={{ position: "relative" }}></div>
       <Card
         sx={{
           width: "100%",
@@ -55,6 +58,7 @@ const ProductCard = ({ product, name }) => {
             component="img"
             height="200"
             image={product.thumbnail}
+            loading="lazy"
             alt={product.title}
             sx={{ objectFit: "cover" }}
           />

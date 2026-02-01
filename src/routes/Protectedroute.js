@@ -21,7 +21,7 @@
 
 // export default Protectedroute;
 
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 
 const Protectedroute = ({ children }) => {
   const user = sessionStorage.getItem("user");

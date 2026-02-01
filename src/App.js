@@ -3,7 +3,7 @@
 // =======================
 
 // React library (needed for JSX and hooks)
-import React from "react";
+import React, { Suspense } from "react";
 
 // Application styles
 import "./App.css";
@@ -20,9 +20,12 @@ import Navbar from "./components/navbar";
 // add() is a helper function that returns sum of two numbers
 import { add, generateRandomNumber } from "./utils/utils";
 import LoginPage from "./pages/login";
-import AccessRole from "./components/HOC/AccessRole";
+import AccessRole from "./HOC/AccessRole";
 import RouterPage from "./routes";
 import { UserContext } from "./context/UserContext";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import ErrorBoundary from "./components/error";
 
 // =======================
 // BASIC REACT CONCEPTS
@@ -112,12 +115,19 @@ function App() {
   // Pure function example
 
   return (
-    <UserContext.Provider value={{ user: userInfo, setUser: setUserInfo }}>
-      <div className="App">
-        <Navbar />
-        <RouterPage />
-      </div>
-    </UserContext.Provider>
+    // <UserContext.Provider value={{ user: userInfo, setUser: setUserInfo }}>
+
+    <Provider store={store}>
+      <ErrorBoundary>
+        <div className="App">
+          <Navbar />
+          <Suspense fallback={<div>Loading...</div>}>
+            <RouterPage />
+          </Suspense>
+        </div>
+      </ErrorBoundary>
+    </Provider>
+    // </UserContext.Provider>
   );
 }
 

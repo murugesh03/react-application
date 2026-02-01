@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import {
   Container,
   Grid,

@@ -1,16 +1,17 @@
-import React from "react";
+import React, { lazy } from "react";
 import { Route, Routes } from "react-router";
 import Homepage from "../pages/home";
-import Profile from "../pages/profile";
+// import Profile from "../pages/profile";
 import LoginPage from "../pages/login";
-import AccessRole from "../components/HOC/AccessRole";
+import AccessRole from "../HOC/AccessRole";
 import Protectedroute from "./Protectedroute";
 import ProductPage from "../pages/productPage";
 import CheckoutPage from "../pages/checkout";
-import { UserContext } from "../context/UserContext";
+import Signup from "../pages/signup";
 
 const ProtectedHome = AccessRole(Homepage);
-const ProtectedProfile = AccessRole(Profile);
+// const ProtectedProfile = AccessRole(Profile);
+const ProtectedProfile = lazy(() => import("../pages/profile"));
 
 const RouterPage = () => {
   const [userInfo, setUserInfo] = React.useState({
@@ -58,6 +59,7 @@ const RouterPage = () => {
           // </UserContext.Provider>
         }
       />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   );
 };

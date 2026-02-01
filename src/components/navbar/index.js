@@ -14,7 +14,34 @@ import {
   Stack
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
+import styles from "./style.module.css";
+import { styled } from "mui/material/styles"; // Material-UI styled component
+// import styled from "styled-components"; // Custom styled component
+
+// const CustomButton = styled.p`
+//   background-color: ${(props) => props.bgColor || "#FF5733"};
+//   color: white;
+//   border: none;
+//   padding: 10px 20px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   &:hover {
+//     background-color: #e0435f;
+//   }
+// `;
+
+const CustomButton = styled(Button)(({ bgColor, theme }) => ({
+  backgroundColor: bgColor || "#FF5733",
+  color: theme.palette.common.white,
+  border: "none",
+  padding: theme.spacing(1, 2),
+  borderRadius: "5px",
+  cursor: "pointer",
+  "&:hover": {
+    backgroundColor: "#e0435f"
+  }
+}));
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -68,12 +95,7 @@ const Navbar = () => {
           {/* Logo / Brand */}
           <Typography
             variant="h6"
-            sx={{
-              flexGrow: 1,
-              fontWeight: "bold",
-              letterSpacing: 1,
-              cursor: "pointer"
-            }}
+            className={styles.navTitle}
             onClick={() => navigate("/")}
           >
             VibeMart
@@ -126,7 +148,8 @@ const Navbar = () => {
                 </Button>
               </>
             ) : (
-              <Button
+              <CustomButton
+                bgColor="white"
                 sx={{
                   color: "#fff",
                   fontWeight: "bold",
@@ -137,7 +160,7 @@ const Navbar = () => {
                 onClick={() => navigate("/login")}
               >
                 Login
-              </Button>
+              </CustomButton>
             )}
           </Stack>
         </Toolbar>

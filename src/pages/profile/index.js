@@ -22,11 +22,14 @@ import {
   Settings,
   VerifiedUser
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 const ProfilePage = () => {
-  const { user: loginUser, setUser } = useContext(UserContext);
+  // const { user: loginUser } = useContext(UserContext);
+
+  const loginUser = useSelector((state) => state.userInfo.userDtls);
+
   console.log("Logged in user from context:", loginUser);
   const navigate = useNavigate();
   const user = JSON.parse(sessionStorage.getItem("user"));

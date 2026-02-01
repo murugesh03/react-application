@@ -1,18 +1,16 @@
 import React from "react";
-import { Button as MuiButton } from "@mui/material";
-const Button = React.memo(function Button({ text, type }) {
-  console.log("Button rendered:", text);
+
+const Button = ({ children, onClick, disabled, className, variant }) => {
   return (
-    <>
-      {type === "text" ? (
-        <MuiButton type="text" variant="contained">
-          {text}
-        </MuiButton>
-      ) : (
-        <MuiButton variant="contained">{text}</MuiButton>
-      )}
-    </>
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className={`btn ${variant || ""} ${className || ""}`}
+      data-testid="custom-button"
+    >
+      {children}
+    </button>
   );
-});
+};
 
 export default Button;

@@ -24,7 +24,7 @@ function Counter({ count, onIncrement }) {
   // Calls parent function when button is clicked
 
   return (
-    <div>
+    <div className="counter">
       {/* Displaying dynamic value using props */}
       <p>Incremented count is {count}</p>
 

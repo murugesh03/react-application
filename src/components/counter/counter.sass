@@ -1,0 +1,39 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+@use "../../styles/functions";
+
+.counter {
+  @include mixins.center-content;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  font-size: doublePx(10);
+  color: variables.$primary-color;
+  p {
+    margin: 10px 0;
+    font-size: variables.$font-size-lg;
+    :hover {
+      color: darken(variables.$primary-color, 10%);
+    }
+  }
+  @include mixins.mobileCounter;
+
+  @media (max-width: functions.breakpoint(small)) {
+    font-size: 14px;
+    p {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: functions.$breakpoint-medium) {
+    font-size: 18px;
+    p {
+      font-size: 22px;
+    }
+  }
+}
+
+.counter-button {
+  @include mixins.center-content;
+  @include mixins.button-style(variables.$primary-color);
+  cursor: pointer;
+}
