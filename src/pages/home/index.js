@@ -23,7 +23,6 @@ const Homepage = () => {
 
   const { data: allProducts } = useGetAllProductsQuery();
   // const navigate = useNavigate();
-  console.log(allProducts, "this is all products");
   // eslint-disable-next-line no-unused-vars
   const [updateProducts, { data }] = useUpdateProductsMutation();
   // const [updateProducts, { data }] = useUpdateProductsMutation();
