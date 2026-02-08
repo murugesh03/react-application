@@ -14,10 +14,10 @@ const ProtectedHome = AccessRole(Homepage);
 const ProtectedProfile = lazy(() => import("../pages/profile"));
 
 const RouterPage = () => {
-  const [userInfo, setUserInfo] = React.useState({
-    loginTime: "",
-    email: ""
-  });
+  // const [userInfo, setUserInfo] = React.useState({
+  //   loginTime: "",
+  //   email: ""
+  // });
   return (
     <Routes>
       <Route path="/" element={<ProtectedHome authenticated={true} />} />

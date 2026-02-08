@@ -3,7 +3,7 @@
 // =======================
 
 // React library (needed for JSX and hooks)
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 
 // Application styles
 import "./App.css";
@@ -18,12 +18,12 @@ import Navbar from "./components/navbar";
 
 // Utility function
 // add() is a helper function that returns sum of two numbers
-import { add, generateRandomNumber } from "./utils/utils";
-import LoginPage from "./pages/login";
-import AccessRole from "./HOC/AccessRole";
+// import { add, generateRandomNumber } from "./utils/utils";
+// import LoginPage from "./pages/login";
+// import AccessRole from "./HOC/AccessRole";
 import RouterPage from "./routes";
-import { UserContext } from "./context/UserContext";
 import { Provider } from "react-redux";
+// import { UserContext } from "./context/UserContext";
 import { store } from "./redux/store";
 import ErrorBoundary from "./components/error";
 
@@ -67,7 +67,7 @@ import ErrorBoundary from "./components/error";
 // APP COMPONENT
 // =======================
 
-const LoginPageWithHOC = AccessRole(LoginPage);
+// const LoginPageWithHOC = AccessRole(LoginPage);
 
 function App() {
   // -----------------------
@@ -77,41 +77,40 @@ function App() {
   // count → current state value
   // setCount → function to update count
   // useState causes component to re-render when state changes
-  const [count, setCount] = React.useState(0);
+  // const [count, setCount] = React.useState(0);
 
-  const [userInfo, setUserInfo] = React.useState({
-    loginTime: "",
-    email: ""
-  });
+  // const [userInfo, setUserInfo] = React.useState({
+  //   loginTime: "",
+  //   email: ""
+  // });
 
   // -----------------------
   // EVENT HANDLER FUNCTION
   // -----------------------
 
-  const handleIncrement = () => {
-    // This log shows the value BEFORE updating state
-    console.log("count state value before update:", count);
+  // const handleIncrement = () => {
+  //   // This log shows the value BEFORE updating state
+  //   console.log("count state value before update:", count);
 
-    // add() is a utility function
-    // Business logic is separated from UI
-    const newCount = add(count, 1);
+  //   // add() is a utility function
+  //   // Business logic is separated from UI
+  //   const newCount = add(count, 1);
 
-    // Updating state (this triggers re-render)
-    setCount(newCount);
+  //   // Updating state (this triggers re-render)
+  //   setCount(newCount);
 
-    // This will still print OLD value
-    // Because state updates are asynchronous
-    console.log("count state value after calling setCount:", count);
-  };
+  //   // This will still print OLD value
+  //   // Because state updates are asynchronous
+  //   console.log("count state value after calling setCount:", count);
+  // };
 
   // This log runs on EVERY render
-  console.log("rendering App component, count =", count);
 
   // -----------------------
   // JSX (UI RENDERING)
   // -----------------------
-  console.log(generateRandomNumber(10)); //Impure function example
-  console.log(add(5, 3));
+  // console.log(generateRandomNumber(10)); //Impure function example
+  // console.log(add(5, 3));
   // Pure function example
 
   return (

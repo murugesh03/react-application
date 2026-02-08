@@ -81,21 +81,20 @@ const ProductPage = () => {
   const [loading, setLoading] = React.useState(true);
   const [snackbarOpen, setSnackbarOpen] = React.useState(false);
 
-  const getProductDetails = async () => {
-    try {
-      setLoading(true);
-      const res = await axios.get(
-        `https://fakestoreapi.com/products/${productId}`
-      );
-      setProduct(res.data);
-    } catch (err) {
-      console.error("Error fetching product details", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   React.useEffect(() => {
+    const getProductDetails = async () => {
+      try {
+        setLoading(true);
+        const res = await axios.get(
+          `https://fakestoreapi.com/products/${productId}`
+        );
+        setProduct(res.data);
+      } catch (err) {
+        console.error("Error fetching product details", err);
+      } finally {
+        setLoading(false);
+      }
+    };
     getProductDetails();
   }, [productId]);
 

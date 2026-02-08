@@ -5,7 +5,7 @@ import {
   Button,
   Typography,
   Stack,
-  Box,
+  // Box,
   IconButton,
   InputAdornment,
   Snackbar,
@@ -19,7 +19,8 @@ import { UserContext } from "../../context/UserContext";
 import { setUserDtls } from "../../redux/slices/userSlice";
 import { useDispatch } from "react-redux";
 const LoginPage = () => {
-  const { setUser } = useContext(UserContext);
+  const { setUser: setUserContext } = useContext(UserContext);
+  // const { setUser } = useContext(UserContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [email, setEmail] = React.useState("");

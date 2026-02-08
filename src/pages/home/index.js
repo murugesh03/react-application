@@ -1,19 +1,19 @@
 import React, {
   useState,
   useEffect,
-  useRef,
-  useCallback,
-  useMemo
+  useRef
+  // useCallback,
+  // useMemo
 } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import { Container, Grid, Typography, Box, Button } from "@mui/material";
 import ProductCard from "../../components/productCard";
 import {
-  useGetAllProductsQuery,
+  // useGetAllProductsQuery,
   useUpdateProductsMutation
 } from "../../redux/services/productApi";
-import useCounter from "../../hooks/useCounter";
+// import useCounter from "../../hooks/useCounter";
 //useEffect, useRef, useState, useCallback, useMemo, useReducer, useContext
 const Homepage = () => {
   const typeRef = useRef(null);
@@ -22,9 +22,10 @@ const Homepage = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   // const { data: allProducts, isLoading } = useGetAllProductsQuery();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [updateProducts, { data }] = useUpdateProductsMutation();
+  // const [updateProducts, { data }] = useUpdateProductsMutation();
 
   const getAllProducts = async () => {
     try {
