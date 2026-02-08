@@ -19,50 +19,48 @@ const RouterPage = () => {
   //   email: ""
   // });
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<ProtectedHome authenticated={true} />} />
-        <Route
-          path="/profile"
-          element={
-            <Protectedroute>
-              {/* <UserContext.Provider
+    <Routes>
+      <Route path="/" element={<ProtectedHome authenticated={true} />} />
+      <Route
+        path="/profile"
+        element={
+          <Protectedroute>
+            {/* <UserContext.Provider
               value={{ user: userInfo, setUser: setUserInfo }}
             > */}
-              <ProtectedProfile authenticated={true} />
-              {/* </UserContext.Provider> */}
-            </Protectedroute>
-          }
-        />
-        <Route
-          path="/productPage/:productId"
-          element={
-            <Protectedroute>
-              <ProductPage />
-            </Protectedroute>
-          }
-        />
-        <Route
-          path="/checkout"
-          element={
-            <Protectedroute>
-              <CheckoutPage />
-            </Protectedroute>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            // <UserContext.Provider
-            //   value={{ user: userInfo, setUser: setUserInfo }}
-            // >
-            <LoginPage />
-            // </UserContext.Provider>
-          }
-        />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
-    </HashRouter>
+            <ProtectedProfile authenticated={true} />
+            {/* </UserContext.Provider> */}
+          </Protectedroute>
+        }
+      />
+      <Route
+        path="/productPage/:productId"
+        element={
+          <Protectedroute>
+            <ProductPage />
+          </Protectedroute>
+        }
+      />
+      <Route
+        path="/checkout"
+        element={
+          <Protectedroute>
+            <CheckoutPage />
+          </Protectedroute>
+        }
+      />
+      <Route
+        path="/login"
+        element={
+          // <UserContext.Provider
+          //   value={{ user: userInfo, setUser: setUserInfo }}
+          // >
+          <LoginPage />
+          // </UserContext.Provider>
+        }
+      />
+      <Route path="/signup" element={<Signup />} />
+    </Routes>
   );
 };
 
