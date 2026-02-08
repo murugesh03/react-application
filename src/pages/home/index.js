@@ -5,12 +5,12 @@ import React, {
   // useCallback,
   // useMemo
 } from "react";
-import axios from "axios";
+// import axios from "axios";
 // import { useNavigate } from "react-router";
 import { Container, Grid, Typography, Box, Button } from "@mui/material";
 import ProductCard from "../../components/productCard";
 import {
-  // useGetAllProductsQuery,
+  useGetAllProductsQuery,
   useUpdateProductsMutation
 } from "../../redux/services/productApi";
 // import useCounter from "../../hooks/useCounter";
@@ -18,40 +18,40 @@ import {
 const Homepage = () => {
   const typeRef = useRef(null);
   const [update, setUpdate] = useState(0);
-  const [timer] = useState(0);
-  const [allProducts, setAllProducts] = useState([]);
+  // const [timer] = useState(0);
+  // const [allProducts, setAllProducts] = useState([]);
 
-  // const { data: allProducts, isLoading } = useGetAllProductsQuery();
+  const { data: allProducts } = useGetAllProductsQuery();
   // const navigate = useNavigate();
-
+  console.log(allProducts, "this is all products");
   // eslint-disable-next-line no-unused-vars
   const [updateProducts, { data }] = useUpdateProductsMutation();
   // const [updateProducts, { data }] = useUpdateProductsMutation();
 
-  const getAllProducts = async () => {
-    try {
-      const response = await axios.get("https://httpbin.org/status/400");
-      console.log(response);
-      if (!response.status !== 200) {
-        throw new Error("Failed to fetch products");
-      }
-      console.log(response, "this is response");
-      setAllProducts(response.data.products);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-    }
-  };
+  // const getAllProducts = async () => {
+  //   try {
+  //     const response = await axios.get("https://httpbin.org/status/400");
+  //     console.log(response);
+  //     if (!response.status !== 200) {
+  //       throw new Error("Failed to fetch products");
+  //     }
+  //     console.log(response, "this is response");
+  //     // setAllProducts(response.data.products);
+  //   } catch (error) {
+  //     console.error("Error fetching products:", error);
+  //   }
+  // };
 
   //Component Did Mount
-  useEffect(() => {
-    console.log("Component Did Mount");
-    getAllProducts();
-    console.log(typeRef.current.style.color);
+  // useEffect(() => {
+  //   console.log("Component Did Mount");
+  //   getAllProducts();
+  //   console.log(typeRef.current.style.color);
 
-    if (typeRef.current) {
-      typeRef.current.style.color = "blue";
-    }
-  }, []);
+  //   if (typeRef.current) {
+  //     typeRef.current.style.color = "blue";
+  //   }
+  // }, []);
 
   // useEffect(() => {
   //   if (typeRef.current) {
@@ -135,14 +135,14 @@ const Homepage = () => {
         </Typography>
         <Button onClick={() => setUpdate(update + 1)}> Increment</Button>
       </Box>
-      <Typography variant="h6" sx={{ mt: 2, textAlign: "center" }}>
+      {/* <Typography variant="h6" sx={{ mt: 2, textAlign: "center" }}>
         Timer: {timer} seconds
-      </Typography>
+      </Typography> */}
       {/* PRODUCT GRID */}
-      {allProducts?.length && (
+      {allProducts?.products?.length && (
         <Container maxWidth="lg" sx={{ py: 6 }}>
           <Grid container spacing={4} justifyContent="center">
-            {allProducts?.map((product) => (
+            {allProducts?.products?.map((product) => (
               <ProductCard product={product} key={product.id} name="Raj" />
             ))}
           </Grid>
