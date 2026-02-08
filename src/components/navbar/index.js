@@ -16,7 +16,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router";
 import styles from "./style.module.css";
-import { styled } from "mui/material/styles"; // Material-UI styled component
+// import { styled } from "mui/material/styles"; // Material-UI styled component
 // import styled from "styled-components"; // Custom styled component
 
 // const CustomButton = styled.p`
@@ -31,17 +31,17 @@ import { styled } from "mui/material/styles"; // Material-UI styled component
 //   }
 // `;
 
-const CustomButton = styled(Button)(({ bgColor, theme }) => ({
-  backgroundColor: bgColor || "#FF5733",
-  color: theme.palette.common.white,
-  border: "none",
-  padding: theme.spacing(1, 2),
-  borderRadius: "5px",
-  cursor: "pointer",
-  "&:hover": {
-    backgroundColor: "#e0435f"
-  }
-}));
+// const CustomButton = styled(Button)(({ bgColor, theme }) => ({
+//   backgroundColor: bgColor || "#FF5733",
+//   color: theme.palette.common.white,
+//   border: "none",
+//   padding: theme.spacing(1, 2),
+//   borderRadius: "5px",
+//   cursor: "pointer",
+//   "&:hover": {
+//     backgroundColor: "#e0435f"
+//   }
+// }));
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -148,7 +148,7 @@ const Navbar = () => {
                 </Button>
               </>
             ) : (
-              <CustomButton
+              <Button
                 bgColor="white"
                 sx={{
                   color: "#fff",
@@ -160,7 +160,7 @@ const Navbar = () => {
                 onClick={() => navigate("/login")}
               >
                 Login
-              </CustomButton>
+              </Button>
             )}
           </Stack>
         </Toolbar>
