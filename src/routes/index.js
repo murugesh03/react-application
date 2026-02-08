@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import { Route, Routes, HashRouter } from "react-router";
+import { Route, Routes } from "react-router";
 import Homepage from "../pages/home";
 // import Profile from "../pages/profile";
 import LoginPage from "../pages/login";
