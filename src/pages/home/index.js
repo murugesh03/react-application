@@ -18,12 +18,13 @@ import {
 const Homepage = () => {
   const typeRef = useRef(null);
   const [update, setUpdate] = useState(0);
-  const [timer, setTimer] = useState(0);
+  const [timer] = useState(0);
   const [allProducts, setAllProducts] = useState([]);
 
   // const { data: allProducts, isLoading } = useGetAllProductsQuery();
   // const navigate = useNavigate();
 
+  // eslint-disable-next-line no-unused-vars
   const [updateProducts, { data }] = useUpdateProductsMutation();
   // const [updateProducts, { data }] = useUpdateProductsMutation();
 

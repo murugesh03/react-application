@@ -12,5 +12,5 @@ const productSlice = createSlice({
   }
 });
 
-export const {} = productSlice.actions;
+export const { setUserDtls } = productSlice.actions;
 export default productSlice.reducer;
