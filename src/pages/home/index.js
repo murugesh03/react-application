@@ -26,7 +26,7 @@ const Homepage = () => {
   // eslint-disable-next-line no-unused-vars
   const [updateProducts, { data }] = useUpdateProductsMutation();
   // const [updateProducts, { data }] = useUpdateProductsMutation();
-
+  console.log(allProducts, "allProducts");
   // const getAllProducts = async () => {
   //   try {
   //     const response = await axios.get("https://httpbin.org/status/400");
