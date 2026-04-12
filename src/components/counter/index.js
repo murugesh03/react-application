@@ -27,6 +27,7 @@ function Counter({ count, onIncrement }) {
       {/* Displaying dynamic value using props */}
       <p>Incremented count is {count}</p>
       <p> Code rabbit has {count} carrots</p>
+
       {/* 
         Button click handler
         - Calls onIncrement function passed from parent
