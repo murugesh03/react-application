@@ -4,7 +4,6 @@
 
 // Importing React library
 // Required to create React components and use JSX
-import React from "react";
 
 // =======================
 // COUNTER COMPONENT
@@ -27,7 +26,7 @@ function Counter({ count, onIncrement }) {
     <div className="counter">
       {/* Displaying dynamic value using props */}
       <p>Incremented count is {count}</p>
-
+      <p> Code rabbit has {count} carrots</p>
       {/* 
         Button click handler
         - Calls onIncrement function passed from parent
